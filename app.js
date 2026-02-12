@@ -1,15 +1,16 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 const userRouter = require("./routes/user");
 const blogRouter = require("./routes/blog");
 const Blog = require("./models/blog");
 const { checkCookieAuth } = require("./middleware/auth");
 
-mongoose.connect("mongodb://localhost:27017/youtube-blog").then(() => {
+mongoose.connect(process.env.MONGODB_URL).then(() => {
   console.log("Connected to MongoDB");
 });
 
