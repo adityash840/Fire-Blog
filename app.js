@@ -10,7 +10,7 @@ const blogRouter = require("./routes/blog");
 const Blog = require("./models/blog");
 const { checkCookieAuth } = require("./middleware/auth");
 
-mongoose.connect(process.env.MONGODB_URL).then(() => {
+mongoose.connect(process.env.MONGODB_URI).then(() => {
   console.log("Connected to MongoDB");
 });
 
